@@ -15,19 +15,15 @@ int main(int argc, const char * argv[]) {
         
         Patient *Bob = [[Patient alloc] initWithName:@"Bob" andAge :56];
         Doctor *Erlenmeyer = [[Doctor alloc] initWithNameAndSpec:@"Erlenmeyer" :@"Otolaryngology"];
+        Doctor *Goldsmith = [[Doctor alloc] initWithNameAndSpec:@"Goldsmith" :@"Flagrant Homeopathy"];
         
-//        Patient *Dick = [[Patient alloc] initWithName:@"Dick" andAge :56];
-//        Patient *Harry = [[Patient alloc] initWithName:@"Harry" andAge :56];
-//        Patient *Cory = [[Patient alloc] initWithName:@"Cory" andAge :30];
         
         [Bob visitDoctor:Erlenmeyer];
-        NSLog(@"%@",Erlenmeyer.acceptedPatients);
         [Bob requestMedication:Erlenmeyer];
+        
+        [Bob visitDoctor:Goldsmith];
+        [Bob requestMedication:Goldsmith];
 
-//        [Erlenmeyer checkPatientHealthCard:Bob];
-        
-        
-//        NSLog(@"%@", patientList);
         
     }
     return 0;

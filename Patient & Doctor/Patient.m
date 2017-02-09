@@ -17,8 +17,9 @@
     if (self) {
         self.name = patientName;
         self.age = patientAge;
+        self.prescriptionHistory = [[NSMutableArray alloc] init];
+        
         int n = arc4random_uniform(2);
-    
         if (n == 0) {
             _hasHealthCard = NO;
             NSLog(@"%@ doesn't a health card", self.name);
@@ -59,9 +60,18 @@
 
 -(void)requestMedication:(Doctor *)doctorName {
     NSLog(@"%@ requested medication!", self.name);
-    if ([doctorName.acceptedPatients containsObject:self.name]) {
-        NSString *prescriptionReceived = [doctorName fillPrescription:_symptoms];
+    NSString *prescriptionReceived = [doctorName fillPrescription:_symptoms];
+    
+    //patient already has medication
+    if ([_prescriptionHistory containsObject:prescriptionReceived]) {
+        NSLog(@"%@ already has medication for that!",self.name);
+        
+    //patient gets new medication
+    } else if ([doctorName.acceptedPatients containsObject:self.name]) {
         NSLog(@"%@ received %@!",self.name, prescriptionReceived);
+        [self.prescriptionHistory addObject:prescriptionReceived];
+        
+    //patient doesn't have card
     } else {
         NSLog(@"%@ wasn't accepted, so can't request medication",self.name);
     }

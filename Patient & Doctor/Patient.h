@@ -16,6 +16,7 @@
 @property int age;
 @property BOOL hasHealthCard;
 @property NSString *symptoms;
+@property NSMutableArray *prescriptionHistory;
 
 -(instancetype)initWithName:(NSString *)patientName andAge:(int)patientAge;
 -(void)visitDoctor:(Doctor *)doctorName;
