@@ -14,9 +14,11 @@
 @property NSString *name;
 @property NSString *spec;
 @property NSMutableSet *acceptedPatients;
+@property NSDictionary *prescriptionsKnown; 
 
 -(instancetype)initWithNameAndSpec:(NSString *)doctorName :(NSString *)doctorSpec;
 -(void)wasVisitedBy:(Patient *)patient;
 -(void)checkPatientHealthCard:(Patient *)patient;
+-(NSString *)fillPrescription:(NSString *)symptom;
 
 @end

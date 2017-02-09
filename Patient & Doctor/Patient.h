@@ -15,8 +15,10 @@
 @property NSString *name;
 @property int age;
 @property BOOL hasHealthCard;
+@property NSString *symptoms;
 
 -(instancetype)initWithName:(NSString *)patientName andAge:(int)patientAge;
 -(void)visitDoctor:(Doctor *)doctorName;
+-(void)requestMedication:(Doctor *)doctorName;
 
 @end
