@@ -17,13 +17,13 @@
     if (self) {
         self.name = patientName;
         self.age = patientAge;
-        int n = rand() % 2;
+        int n = arc4random_uniform(2);
         if (n == 0) {
             self.hasHealthCard = NO;
-            NSLog(@"%@ does not have a health card", self.name);
+            NSLog(@"%@ was generated without health card", self.name);
         } else {
             self.hasHealthCard = YES;
-            NSLog(@"%@ does have health card", self.name);
+            NSLog(@"%@ was generated with health card", self.name);
         }
     }
     return self;

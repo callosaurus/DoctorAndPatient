@@ -28,9 +28,10 @@
 -(void)checkPatientHealthCard:(Patient *)patient
 {
     if (patient.hasHealthCard == YES){
+        NSLog(@"Patient was accepted because they have health card!");
         [_acceptedPatients addObject:patient];
     } else {
-        NSLog(@"Patient does not have a health card :(");
+        NSLog(@"Patient does not have a health card, and was not accepted :(");
     }
 }
 
